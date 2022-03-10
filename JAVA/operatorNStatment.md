@@ -22,20 +22,25 @@
 <br>
 
 ## 2. 조건문
-1. if문
-    ```java
-    Scanner scanner = new Scanner(System.in);
-    boolean bool = scanner.nextBool();
+### 1) if문
 
-    if (bool) {
-        System.out.prinln(true);
-    } else if (!bool) {
-        System.out.println(false);
-    }else {
-        System.out.println('error');
-    }
-    ```
-2. switch-case문
+```java
+Scanner scanner = new Scanner(System.in);
+boolean bool = scanner.nextBool();
+
+if (bool) {
+    System.out.prinln(true);
+} else if (!bool) {
+    System.out.println(false);
+}else {
+    System.out.println('error');
+}
+```
+
+### 2) switch-case문
+- 예전 문법
+
+
     ```java
     int month, day;
     month = 3;
@@ -55,6 +60,7 @@
     };
     ```
 
+- 최근 문법
     ```java
     int month = 3;
     int day = switch(month) {
@@ -77,4 +83,42 @@
 <br>
 
 ## 3. 반복묵
+### 1) while문
+
+```java
+int num = 1;
+
+while (num < 10) {
+    num++;
+}
+//1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+```
+
+### 2) do-while문
+
+```java
+int num = 0;
+
+do{
+    num++;
+} while (num < 10);
+//1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+```
+
+### 3) for문
+
+```java
+for(int num = 1; num <= 5; num++){
+    System.out.println(num);
+}
+```
+```java
+//참고) 무한 반복
+for (;;){
+    ...
+}
+```
+
+- break : 반복문 중단
+- continue : 반복문 skip (중단 후 다음 interation 수행)
 
