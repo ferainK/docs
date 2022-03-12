@@ -106,15 +106,57 @@
 <br>
 
 # 2. 클래스의 속성
-## 1) 접근 제어자 : 외부에서의 접근 속성
-  - `public` : class파일에서 단 한 개만 존재 가능함. ( _public class이름 == class 파일 이름_ )
-  - `privte` : 
-  - `protected` : 
+## 1) 접근 제어자
+### (1) 접근 제어자의 종류
+  - __생략__ : `package 내부`에서만 접근 가능
+  - __privte__ : `Class 내부`에서만 접근 가능
+  - __protected__ : `package 내부` 및 `상속한 Class`에서만 접근 가능
+  - __public__ : `어디에서든` 접근 가능
 
+### (2) get() / set() 메서드
+  - private에도 접근할 수 있게 만든 public 메서드
+    ```java
+    // private 멤버변수 선언
+    private int result = 10;
 
+    // get 메서드
+    public int getResult() {
+      return this.result;
+    }
+    // set 메서드
+    public void setResult(int result){
+      this.result = result;
+    } 
+    ```
 
+### (3) 정보은닉 및 캡슐화
+  - 멤버변수(boolean)와 if문을 통해, ① 입력값이 옳바른지 확인할 수 있고, 이를 통해 ② 데이터 오염을 방지할 수 있다.
+  - `꼭 직접 구현해보세용^^`
 
+## 2) this
+  1.  인스턴스 자신의 메모리에 할당된 주소<br> : 인스턴스 저장되어 있는 멤버변수/인스턴스를 호출할 때 사용
 
+      ```java
+      //멤버변수
+      static int data = 30;
 
+      //메서드
+      public setData(int data){
+        this.data = data;  //focus
+      }
+      ```
 
+      2. 클래스 내부에서 생성자가 오버로드 되어있는 다른 생성자를 호출할때 사용
+      ```java
+      //생성자1
+      public MyClass() {
+        this("이름 없음", 1);  //focus
+      }
+
+      //생성자2
+      public MyClass(String name, int age) {
+        this.name = name;
+        this.age = age
+      }
+      ```
 # 2.
