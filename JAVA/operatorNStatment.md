@@ -118,6 +118,12 @@ for (;;){
     ...
 }
 ```
+```java
+// foreach
+for (int num : array){
+    ...
+}
+```
 
 - break : 반복문 중단
 - continue : 반복문 skip (중단 후 다음 interation 수행)

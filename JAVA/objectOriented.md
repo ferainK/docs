@@ -111,7 +111,7 @@
 ## 1) 접근 제어자
 ### (1) 접근 제어자의 종류
   - __생략__ : `package 내부`에서만 접근 가능
-  - __privte__ : `Class 내부`에서만 접근 가능
+  - __private__ : `Class 내부`에서만 접근 가능
   - __protected__ : `package 내부` 및 `상속한 Class`에서만 접근 가능
   - __public__ : `어디에서든` 접근 가능
 
@@ -172,10 +172,9 @@
 - 단 하나의 인스턴스만 생성학 싶을 때 
   ```java
   public class Company() {
-    private Company() {}
     private static Company instance = new Company();
     public static Company getinstance() {
-      if (instance = null){
+      if (instance == null){
         instance = new Company();
       } else{
         return instance;
@@ -183,3 +182,91 @@
     }
   }
   ```
+
+# 2. 배열
+## 1) 일반 배열
+- `초기화하지 않는 경우`, 데이터 타입에 따라 `0` 혹은 `" "`로 초기화되므로 주의하자!
+```java
+// 선언 후 초기화 방법 (1차 배열)
+// #1
+int[] arr = new int[3];
+arr = {10, 20, 30};
+
+// #2
+int[] arr;
+arr = new int[] {10, 20, 30};
+```
+
+```java
+// 동시 선언/초기화 방법 (2차 배열)
+// #1
+int[][] arr = new int[][] {{10, 20, 30}, {3,4,5}, {100, 200, 300}};
+
+// #2
+int[][] arr = {{10, 20, 30}, {3,4,5}, {100, 200, 300}};
+```
+## 2) 객체 배열
+- `초기화하지 않는 경우`, `null`로 초기화되므로 주의하자.
+- 객체는 참조변수로 배열 안에는 주소값(4 or 8바이트)이 저장된다.
+### (1) ArrayList
+- `java.util`에서 제공하는 Class
+- 객체 배열의 경우, `ArrayList<'Class명'>`으로 선언하는 것이 일반적
+- 주요 메서드 (E : 문자형)
+
+  |반환값|메서드|설명|
+  |--|--|--|
+  |int|`size()`|전체 요수의 수 반환|
+  |boolean|`isEmpty()`|배열이 비어있는지 확인|
+  |boolean|`add(E 'value')`|배열 값 추가 <br> (객체 배열의 경우, 생성자 지정 필요)|
+  |E|`get(int 'index')`|index 위치의 요소 반환|
+  |E|`remove(int 'index')`|index 위치의 요소 삭제|
+
+```java
+import java.util.ArrayList;
+import 'class 위치';
+
+public class test{
+  ArrayList<'class이름'> arr = new ArrayLIst<>();
+  arr.add(new Book("책1", "저자1")) 
+}
+```
+
+### (2) 복사 종류
+1.  얕은 복사
+    ```java
+    Book[] originArray = new Book[5];
+    Book[] newArray = new Book[5];
+
+    originArray[0] = new Book("책1", "저자1");
+    originArray[1] = new Book("책2", "저자2");
+    originArray[2] = new Book("책3", "저자3");
+    originArray[3] = new Book("책4", "저자4");
+    originArray[4] = new Book("책5", "저자5");
+
+    System.arrayCopy(originArray, 0, newArray, 0, 5)
+    // 배열이름, 배열 시작 인덱스, 새로운 배열 이름, 새로운 배열 시작 인덱스, 복사할 배열 수
+    ```
+
+2. 깊은 복사
+    ```java
+    Book[] originArray = new Book[5];
+    Book[] newArray = new Book[5];
+
+    originArray[0] = new Book("책1", "저자1");
+    originArray[1] = new Book("책2", "저자2");
+    originArray[2] = new Book("책3", "저자3");
+    originArray[3] = new Book("책4", "저자4");
+    originArray[4] = new Book("책5", "저자5");
+
+    newArray[0] = new Book();
+    newArray[1] = new Book();
+    newArray[2] = new Book();
+    newArray[3] = new Book();
+    newArray[4] = new Book();
+
+    //배열의 모든 값을 직접 초기화해줘야함....
+    for (int i = 0; i < originArray.length; i++){
+      newArray[i].setTitle(originArray[i].getTitle());
+      newArray[i].setAuthor(originArray[i].getAuthor());
+    }
+    ```
