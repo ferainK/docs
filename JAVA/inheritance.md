@@ -98,12 +98,49 @@
     ```
 
 # 2. 인터페이스
-## 1) 
-- 일종의 설명서(specification)을 제공하기 위해 사용됨
-- `추상 클래스 형태`로 작성되고, `모든 메서드` = `추상 메서드` / `모든 변수` = `상수`로 선언된다.
-- 클래스 상속과 달리 여러 인터페이스를 implements할 수 있다.
+## 1) 기본 내용 
+- 생성자를 가질 수 없다.
+- 일종의 설명서(specification)을 제공하기 위해 사용되며, `추상 클래스` 같은 컨셉
+- 클래스 상속과 달리 여러 인터페이스를 `implements`할 수 있다.
   ```java
   public class Calculator implements interface{
     ...
   }
   ```
+## 2) 멤버 변수
+- 모든 변수는 상수로 선언됨 (`final`)
+
+## 3) 메서드
+- 기본적으로 모든 메서드는 `추상 메서드 (abstract method)` 형태이다.
+- 최근 `정적 메서드 (static method)` 사용 가능 : 인스턴스와 무관한 메서드 (재선언 불가)
+- 최근 `private 메서드` 사용 가능 : 인터페이스 내부에서만 사용되는 메서드 (재선언 불가)
+- 최근 `default 메서드` 사용 가능 : 공통적으로 사용될 메서드 (재선언 불가)
+- 여러 인터페이스를 `implements`하는 경우, 메서드가 중복되는 경우 선택하여야 한다.
+  ```java
+  //sell.java
+  default void order() {
+    System.out.println("판매 주문");
+  }
+
+  //buy.java
+  default void order() {
+    System.out.println("구매 주문");
+  }
+
+  //CustomerTest.java
+  buyer.order();    // ① sell.java의 defalut 메서드 선택
+  seller.order();   // ② buy.java의 defalut 메서드 선택
+  ```
+
+## 4) 타입 상속
+- 인터페이스를 인터페이스로 상속하는 경우
+```java
+public interface MyInterface extends X, Y{
+  ...
+}
+
+// (참고) 타입상속과 상속을 동시에 하는 경우
+public class BookShelf extends Shelf implements Queue{
+  ...
+}
+```
