@@ -134,13 +134,13 @@
 
 ## 4) 타입 상속
 - 인터페이스를 인터페이스로 상속하는 경우
-```java
-public interface MyInterface extends X, Y{
-  ...
-}
+  ```java
+  public interface MyInterface extends X, Y{
+    ...
+  }
 
-// (참고) 타입상속과 상속을 동시에 하는 경우
-public class BookShelf extends Shelf implements Queue{
-  ...
-}
-```
+  // (참고) 타입상속과 상속을 동시에 하는 경우
+  public class BookShelf extends Shelf implements Queue{
+    ...
+  }
+  ```
