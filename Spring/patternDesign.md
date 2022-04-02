@@ -165,6 +165,38 @@
     }
     ```
 
+### 5) 파사드 패턴
+- 객체간 복잡한 관계가 형성되어 있을 때, 중간에 인터페이스(?) 역할을 하는 클래스 수행
+    ```java
+    //파사드패턴 클래스
+    public SftpClient(String host, int port, String path, String filename){
+        this.ftp = new FTP(host, port, path);
+        this.reader = new Reader(filename);
+        this.writer = new Writer(filename);
+    }
+
+    public void connect(){
+        ftp.connect();
+        ftp.moveDirectory();
+        writer.fileConnect();
+        reader.fileConnect();
+    }
+
+    public void disConnect(){
+        reader.fileDisconnect();
+        writer.fileDisconnect();
+        ftp.disconnect();
+    }
+
+    public void write(){
+        writer.write();
+    }
+
+    public void read(){
+        reader.fileRead();
+    }
+    ```
+
 ## 3. 행위 패턴
 ### 1) 옵저버 패턴
 - 이벤트 리스너(`Event Listener`)와 같은 기능
@@ -203,3 +235,42 @@ public static void main(String[] args) {
     button.click("메시지 전달: click4");
   }
 ```
+
+### 2) 전략 패턴
+- 객체들의 유사 함수들을 캡슐화하여 객체의 함수를 변경하고자 할때, 전략만 변경하여 적용하는 기능
+    ```java
+    // 1. 전략 객체
+    // - 전략1 : 변환
+    @Override
+    public String encode(String text) {
+        return Base64.getEncoder().encodeToString(text.getBytes());
+    }
+
+    // - 전략2 : 일반
+    @Override
+    public String encode(String text) {
+        return text;
+    }
+
+    // 2. 컨텍스트 (생성자 + 매소드)
+    // - 생성자 : 인터페이스를 통한 전략 선택 기능
+    public void setEncodingStrategy(EncodingStrategy encodingStrategy) {
+        this.encodingStrategy = encodingStrategy;
+    }
+    // - 매소드
+    public String getMsg(String msg){
+        return this.encodingStrategy.encode(msg);
+    }
+
+    // 3. 클라이언트 [실행]
+    
+    String msg = "Hello JAVA?";
+    // - 전략1 선택
+    encoder.setEncodingStrategy(new Base64Strategy());
+    String base64Result = encoder.getMsg(msg);
+    System.out.println(base64Result);
+    // - 전략2 선택
+    encoder.setEncodingStrategy(new NormalStrategy());
+    String normalResult = encoder.getMsg(msg);
+    System.out.println(normalResult);
+    ```

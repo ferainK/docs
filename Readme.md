@@ -9,6 +9,7 @@
 
 2\. __`Spring`__ 학습 매뉴얼
 - [시작하기](./Spring/intro.md) (객체지향)
+- [패턴디자인](./Spring/patternDesign.md)
 
 ## [유용한 정보]
 1\. [__git__](./ETC/git.md) : 버전 관리 툴 <br>
