@@ -10,7 +10,7 @@
 2\. __`Spring`__ 학습 매뉴얼
 - [패턴디자인](./Spring/patternDesign.md)
 - [Web 개발이란?](./Spring/intro.md)
-- [Spring Boot 시작하기](./Spring/springBoot.md)
+- [Spring Boot API 기초](./Spring/springBoot.md)
 
 ## [유용한 정보]
 1\. [__git__](./ETC/git.md) : 버전 관리 툴 <br>
