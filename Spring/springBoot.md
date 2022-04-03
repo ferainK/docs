@@ -40,4 +40,5 @@
             return "hello spring boot!";
         }
         ```
-    
+### 3) Controller
+
