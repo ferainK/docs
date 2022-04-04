@@ -81,3 +81,18 @@
     - 의존관계주입(IoC/DI)
     - 관점중심프로그램(AOP)
     - 이식가능한추상화(PSA)
+
+## 1. IoC (Inversion of Control, 제어 역전)
+- new 생성자가 아닌 `Spring Container`에 맡긴다.
+- 즉, 개발자가 관리하는 것이 아닌 `프레임워크가 객체를 관리`한다는 의미
+
+## 2. DI (Dependency Injection)
+- 의존성에서 벗어나있어, 코드 테스트하기 용이하다. 
+- Mock을 통해 코드 테스트가 가능하다.
+- 코드 확장/변경이 용이하다.
+- 순환 참조를 막을 수 있다.
+
+## 3. AOP (Aspect Oriented Programming, 관점 지향 프로그램)
+- Web Layer : REST API 제공 
+- Business Layer : 주요 로직
+- Data Layer : 데이터베이스 연동
