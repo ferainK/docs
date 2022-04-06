@@ -93,6 +93,15 @@
 - 순환 참조를 막을 수 있다.
 
 ## 3. AOP (Aspect Oriented Programming, 관점 지향 프로그램)
+: 클래스별 주요 기능과 관련없이 반복적으로 사용되는 코드를 별도로 분리
 - Web Layer : REST API 제공 
 - Business Layer : 주요 로직
 - Data Layer : 데이터베이스 연동
+
+## 4. Object Mapper (외부 라이브러리)
+- maven repository에서 여러 라이브러리를 검색할 수 있다.
+- Jackson Databind 다운로드
+- bulid.gradle의 디펜던시에 추가
+- (참고) Window를 사용하는 경우 UTF-8 셋팅이 필요함
+    - 설정에서 encoding 검색 후 MS949로 된 항목 UTF-8로 변경 (3개 중 2개 변경 필요)
+    - help/findaction에서 edit custom VM options 검색하여, Dfile.encoding=UTF-8 입력 후 저장 / 인텔리제이 재실행
