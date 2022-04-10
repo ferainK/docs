@@ -105,3 +105,36 @@
 - (참고) Window를 사용하는 경우 UTF-8 셋팅이 필요함
     - 설정에서 encoding 검색 후 MS949로 된 항목 UTF-8로 변경 (3개 중 2개 변경 필요)
     - help/findaction에서 edit custom VM options 검색하여, Dfile.encoding=UTF-8 입력 후 저장 / 인텔리제이 재실행
+
+## 5. Validation
+### 1) 기본 개념
+- JAVA에서는 null 값 관리하기 위한 검증 로직이 필요하다.
+    - 재사용하기 힘든 코드라 Service Logic에 포함하기 어렵다. (서비스 로직과 분리)
+    - Business Logic이 수정되면, 검증로직도 함께 수정되어야한다. (유지보수 어려움)
+- Spring에서는 Validation의 Annotation으로 해결
+    |Annotation|용도|
+    |-|-|
+    |@NotNull|null 불가|
+    |@NotEmpty|null, "" 불가|
+    |@NotBlank|null, "", `` 불가|
+    |@Past|과거 날짜|
+    |@PastOrPresent|과거 날짜 및 오늘|
+    |@Future|미래 날짜|
+    |@FutureOrPresent|미래 날짜 및 오늘|
+    |@Pattern|정규식|
+    |@Max|최대값|
+    |@Min|최소값|
+    |@AssertTure/False|별도 로직 적용|
+    |@Valid|object validation 실행|
+
+### 2) 적용 방법
+```java
+    // gradle dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+```
+
+- 핸드폰 번호 정규식
+
+    ```java
+        ^\\d{2,3}-\\d{3,4}-\\d{4}\$
+    ```
