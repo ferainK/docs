@@ -114,9 +114,10 @@
 - Spring에서는 Validation의 Annotation으로 해결
     |Annotation|용도|
     |-|-|
+    |@Size|문자의 길이|
     |@NotNull|null 불가|
     |@NotEmpty|null, "" 불가|
-    |@NotBlank|null, "", `` 불가|
+    |@NotBlank|null, "", " " 불가|
     |@Past|과거 날짜|
     |@PastOrPresent|과거 날짜 및 오늘|
     |@Future|미래 날짜|
@@ -136,5 +137,18 @@
 - 핸드폰 번호 정규식
 
     ```java
-        ^\\d{2,3}-\\d{3,4}-\\d{4}\$
+        ^\\d{2,3}-\\d{3,4}-\\d{4}$
     ```
+
+## 6. Exception
+### 1) 기본 개념
+|Annotation|용도|
+|-|-|
+|@ControllerAdvice|일반적인 예외 처리|
+|@ExceptionHandler|특정 예외 처리|
+
+### 2) 적용 방법
+```java
+    // gradle dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+```

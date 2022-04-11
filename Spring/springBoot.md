@@ -1,4 +1,4 @@
-# Spring 시작
+ # Spring 시작
 ## 1. 준비하기
 ### 1) Spring Boot 주요 특징
 1. java -jar로 실행하는 java 어플리케이션을 만들 수 있다.
