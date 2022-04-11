@@ -152,3 +152,11 @@
     // gradle dependencies
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 ```
+
+## 7. Filter
+- Spring Boot Framework에서 Client에서 들어오는 응답/요청을 받는 최전선
+- `ServletRequest`, `ServletResponse`의 객체를 변환할 수 있다.
+- Log를 남기기 위해 이용되기도 함
+
+## 8. Interceptor
+ 
