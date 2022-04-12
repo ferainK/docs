@@ -159,4 +159,10 @@
 - Log를 남기기 위해 이용되기도 함
 
 ## 8. Interceptor
- 
+- Filter와 유사하지만 Spring Context에 등록된다. (Controller 내부에서 동작)
+- `AOP`와 유사한 기능을 제공할 수 있다.
+- 인증 단계를 처리하는데 사용됨
+
+## 9. 비동기
+
+## 10. REST Template
