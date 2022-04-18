@@ -42,3 +42,30 @@
         ```
 ### 3) Controller
 
+## 3. JUnit
+- TDD (Test-Driven Development) : 단위별로 테스트하는 프래임워크
+- Test 패키지에서 작성되며 이노테이션 활용
+    - 클래스 이노테이션
+        - @Import(`API`.class)  //Componet, Controller (MockBean으로 활용)
+        - @WebMvcTest(`Controller`.class)  //Controller
+    - 매소드 이노테이션
+        - @Test
+        - @MockBean
+        - @BeforeEach
+        ```java
+            @BeforeEach
+            public void init(){
+                Mockito.lenient().when("Api".connect()).thenReturn("값")
+            }
+        ```
+## 4. 테스트 커버리지
+- build.gradle에서 plugins에 id 'jacoco' 추가
+- gradle 리스트에서 Tasks>verification>test / jacocoTestReport 더블 클릭
+
+## 5. Swagger
+- maven repository에서 `swaggerfox boot starter` 추가
+- 서버 오픈 후 주소창에 localhost:8080/swagger-ui/ 입력하면, API 자동 문서화
+    - @Api(tags = {""})
+    - @ApiParam(value = "", example = "", required = true)
+    - @ApiOperation(value =  "")
+    - @ApiResponse(code = 200, value = "")
